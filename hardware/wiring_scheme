@@ -1,0 +1,90 @@
+# Wiring Scheme
+
+This document describes the complete wiring configuration of the Bluetooth Audio Player project based on an ESP32 microcontroller.
+
+---
+
+## ESP32 – TFT Display (ST7789, SPI Interface)
+
+The TFT display is driven via SPI using the LovyanGFX library. Chip Select (CS) is not used.
+
+| TFT Display Pin | ESP32 Pin | Description |
+|---------------|----------|------------|
+| VCC | 3.3V | Display power supply |
+| GND | GND | Common ground |
+| SCK | GPIO 18 | SPI clock |
+| SDA (MOSI) | GPIO 23 | SPI data |
+| DC | GPIO 2 | Data / command select |
+| RST | GPIO 4 | Display reset |
+| CS | Not connected | Not used |
+| BLK | 3.3V | Backlight power |
+
+---
+
+## ESP32 – I2S Audio Interface
+
+Bluetooth audio is streamed via I2S to an external amplifier.
+
+| I2S Signal | ESP32 Pin | Description |
+|-----------|----------|------------|
+| BCK | GPIO 26 | Bit clock |
+| WS | GPIO 25 | Word select (LRCLK) |
+| DATA | GPIO 22 | Audio data output |
+| GND | GND | Ground |
+
+---
+
+## Audio Amplifier (PAM8302)
+
+The PAM8302 Class-D amplifier drives a single passive speaker.
+
+| PAM8302 Pin | Connection |
+|------------|-----------|
+| VCC | 5V |
+| GND | GND |
+| DIN | GPIO 22 |
+| BCLK | GPIO 26 |
+| LRCLK | GPIO 25 |
+| SPK+ | Speaker + |
+| SPK− | Speaker − |
+
+---
+
+## Speaker
+
+| Speaker Pin | Connection |
+|------------|-----------|
+| + | PAM8302 SPK+ |
+| − | PAM8302 SPK− |
+
+---
+
+## Volume Control (Potentiometer)
+
+| Potentiometer Pin | ESP32 Pin |
+|------------------|----------|
+| VCC | 3.3V |
+| GND | GND |
+| Signal | GPIO 34 |
+
+---
+
+## Control Button
+
+Single multifunction button (play/pause, next, previous).
+
+| Button Pin | ESP32 Pin |
+|-----------|----------|
+| Signal | GPIO 13 |
+| GND | GND |
+
+---
+
+## Power System
+
+| Component | Description |
+|---------|-------------|
+| Battery | Rechargeable Li-ion cell |
+| Charging Module | USB rechargeable module |
+| Regulator | 5V boost / regulation for amplifier |
+| ESP32 Supply | 3.3V regulated |
