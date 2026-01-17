@@ -7,6 +7,9 @@ The device was created by configuring and combining multiple electronic componen
 
 No complex or proprietary audio processing software was developed as part of this project.
 
+
+![Device Photo](hardware/photos/m.jpeg)
+
 ---
 
 ## Project Overview
@@ -94,13 +97,6 @@ CAD and STL files for the enclosure are provided in the `hardware` directory.
 - Rechargeable battery operation  
 - Portable standalone design  
 - Custom 3D printed enclosure  
-
----
-
-## Media
-
-<img src="hardware/photos/m1.jpeg" width="45%">
-<img src="hardware/photos/m2.jpeg" width="45%">
 
 ---
 
