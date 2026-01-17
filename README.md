@@ -8,7 +8,8 @@ The device was created by configuring and combining multiple electronic componen
 No complex or proprietary audio processing software was developed as part of this project.
 
 
-![Device Photo](media/m.jpeg)
+<img src="media/m.jpeg" width="400">
+
 
 ---
 
